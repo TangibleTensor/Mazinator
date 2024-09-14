@@ -1,0 +1,54 @@
+﻿<Window x:Class="Mazinator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mazinator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel 
+            Grid.Column="0"
+            Background="#453f5f">
+            <TextBlock x:Name="textWidth" FontFamily="bahnschrift" FontSize="24" Margin="5" Foreground="White">
+                Width: 
+            </TextBlock>
+            <Slider x:Name="sliderWidth" Value="30" Minimum="2" Maximum="75" ValueChanged="SliderWidth_ValueChanged"/>
+            <StackPanel Margin="10"/>
+            <TextBlock x:Name="textHeight" FontFamily="bahnschrift" FontSize="24" Margin="5" Foreground="White">
+                Height:
+            </TextBlock>
+            <Slider x:Name="sliderHeight" Value="20" Minimum="2" Maximum="75" ValueChanged="SliderHeight_ValueChanged"/>
+            <StackPanel Margin="10"/>
+            <CheckBox Margin="10,10" Foreground="Wheat" 
+                      x:Name="animateMazeCheckBox"
+                      FontFamily="Bahnschrift" FontSize="18" 
+                      VerticalContentAlignment="Center">Animate</CheckBox>
+            <Button Margin="5 20 5 0" Content="Generate Maze" FontFamily="bahnschrift" Height="55" Click="GenerateMazeButton_Click"/>
+        </StackPanel>
+
+        <Border 
+            Grid.Column="1"
+            Background="#453f5f">
+            <Border Margin="30" 
+                    Background="BlanchedAlmond"
+                    BorderBrush="Gray"
+                    CornerRadius="10"
+                    BorderThickness="5">
+                <Image x:Name="mazeImage"
+                       MouseMove="MazeImage_MouseMove"
+                       RenderOptions.EdgeMode="Aliased"
+                       Stretch="Uniform"
+                       UseLayoutRounding="True"
+                       RenderOptions.BitmapScalingMode="NearestNeighbor"
+                       SnapsToDevicePixels="False"
+                       Margin="10"/>
+            </Border>
+        </Border>
+    </Grid>
+</Window>
